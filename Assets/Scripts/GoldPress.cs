@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldPress : MonoBehaviour {
-    [SerializeField] private int goldPressOwned;
-    [SerializeField] private int productionCost;
-    [SerializeField] private int goldPerSecondPerPress;
+    public int goldPressOwned;
+    public int productionCost;
+    public int goldPerSecondPerPress;
     private Gold gold;
 
     void Start() {
@@ -30,9 +30,5 @@ public class GoldPress : MonoBehaviour {
     void PrintMoney() {
         var goldPerSecond = goldPerSecondPerPress * goldPressOwned;
         gold.AddGold(goldPerSecond);
-    }
-
-    // Update is called once per frame
-    void Update() {
     }
 }
