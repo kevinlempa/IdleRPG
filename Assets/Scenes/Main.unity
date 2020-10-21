@@ -1084,7 +1084,9 @@ MonoBehaviour:
   goldProductionUnits:
   - cost: 100
     productionAmount: 1
+    name: Gold Press
   - cost: 1000
     productionAmount: 5
+    name: Gold Mountain
   goldProductionUnitParent: {fileID: 1949578517}
-  goldProductionUnitPrefab: {fileID: 5180716211921746249, guid: b2b6d85eaf2403743818756163f14636, type: 3}
+  goldProductionUnitPrefab: {fileID: 6384028951340766322, guid: 6147962beff0ffa469aadd3c27a2f283, type: 3}
