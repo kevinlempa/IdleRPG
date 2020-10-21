@@ -10,17 +10,18 @@ public class SaveAndLoad : MonoBehaviour {
         gold = FindObjectOfType<Gold>();
         goldPress = FindObjectOfType<GoldPress>();
         gold.GoldAmount = PlayerPrefs.GetInt("Gold", 0);
-        goldPress.productionCost = PlayerPrefs.GetInt("Production Cost", 100);
-        goldPress.goldPressOwned = PlayerPrefs.GetInt("Gold presses owned", 0);
-        goldPress.goldPerSecondPerPress = PlayerPrefs.GetInt("Gold per second per press", 1);
+        goldPress.cost = PlayerPrefs.GetInt("Production Cost", 100);
+        goldPress.goldPressAmount = PlayerPrefs.GetInt("Gold presses owned", 0);
+        goldPress.productionAmount = PlayerPrefs.GetInt("Gold per second per press", 1);
 
     }
 
     private void OnDestroy() {
+        
         PlayerPrefs.SetInt("Gold", gold.GoldAmount);
-        PlayerPrefs.SetInt("Production Cost", goldPress.productionCost);
-        PlayerPrefs.SetInt("Gold presses owned", goldPress.goldPressOwned);
-        PlayerPrefs.SetInt("Gold per second per press", goldPress.goldPerSecondPerPress);
+        PlayerPrefs.SetInt("Production Cost", goldPress.cost);
+        PlayerPrefs.SetInt("Gold presses owned", goldPress.goldPressAmount);
+        PlayerPrefs.SetInt("Gold per second per press", goldPress.productionAmount);
     }
     
 }

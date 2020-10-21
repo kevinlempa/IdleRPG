@@ -2,53 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public partial class GoldPress : MonoBehaviour, IPurchasableProduct {
+public partial class GoldPress : MonoBehaviour {
 
-    public int goldPressOwned;
-    public int productionCost;
-    public int goldPerSecondPerPress;
+    public int goldPressAmount;
+    public int cost;
+    public int productionAmount;
     private Gold gold;
-    [SerializeField] private int productionTime;
+    private float productionTime = 1f;
     private string name = "GoldPress";
 
-    public string Name {
-        get => name;
-        set => name = value;
-    }
 
-    public int Cost {
-        get => productionCost;
-        set => productionCost = value;
-    }
-
-    public int ProductionTime {
-        get => productionTime;
-        set => productionTime = value;
-    }
-
-    public int ProductionAmount { get => goldPerSecondPerPress; set => goldPerSecondPerPress = value; }
 
     void Start() {
         gold = FindObjectOfType<Gold>();
-        StartCoroutine(StartPrinting());
+        StartCoroutine(StartProducing());
     }
 
     public void BuyGoldPess() {
-        if (gold.GoldAmount > productionCost) {
-            gold.ReduceGold(productionCost);
-            goldPressOwned++;
+        if (gold.GoldAmount > cost) {
+            gold.ReduceGold(cost);
+            goldPressAmount++;
         }
     }
 
-    IEnumerator StartPrinting() {
+    IEnumerator StartProducing() {
         while (true) {
-            yield return new WaitForSeconds(1f);
-            PrintMoney();
+            yield return new WaitForSeconds(productionTime);
+            ProduceGold();
         }
     }
 
-    void PrintMoney() {
-        var goldPerSecond = goldPerSecondPerPress * goldPressOwned;
+    void ProduceGold() {
+        var goldPerSecond = productionAmount * goldPressAmount;
         gold.AddGold(goldPerSecond);
     }
 }
