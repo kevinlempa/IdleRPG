@@ -9,7 +9,7 @@ public partial class GoldPress : MonoBehaviour, IPurchasableProduct {
     public int goldPerSecondPerPress;
     private Gold gold;
     [SerializeField] private int productionTime;
-    private string name;
+    private string name = "GoldPress";
 
     public string Name {
         get => name;
