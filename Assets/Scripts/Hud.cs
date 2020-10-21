@@ -3,17 +3,14 @@ using UnityEngine.UI;
 
 public class Hud : MonoBehaviour {
     public Text goldText;
-    private int goldAmount;
+    private Gold gold;
 
-    void Start() {
-        goldAmount = FindObjectOfType<Gold>().GoldAmount;
+    void Awake() {
+        gold = FindObjectOfType<Gold>();
     }
 
     public void UpdateGold() {
-        goldAmount = FindObjectOfType<Gold>().GoldAmount;
+        goldText.text = $"Gold : {gold.GoldAmount}";
     }
-
-    void Update() {
-        goldText.text = $"Gold : {goldAmount}";
-    }
+    
 }

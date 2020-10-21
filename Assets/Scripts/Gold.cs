@@ -6,14 +6,15 @@ using UnityEngine.Events;
 
 public class Gold : MonoBehaviour {
     [SerializeField] private UnityEvent goldChange;
-    [SerializeField] private int goldAmountPerClick;
+    [SerializeField] private int goldAmountPerClick = 5;
     private int _goldAmount;
 
     public int GoldAmount {
         get => _goldAmount;
         set {
-            goldChange?.Invoke();
             _goldAmount = value;
+            goldChange?.Invoke();
+            
         }
     }
     
