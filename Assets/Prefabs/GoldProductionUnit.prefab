@@ -293,9 +293,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: BuyGoldPress
+      - m_Target: {fileID: 7420895300492475696}
+        m_TargetAssemblyTypeName: GoldProductionUnitScript, Assembly-CSharp
+        m_MethodName: BuyGoldPess
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -377,7 +377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldProductionUnit:
+    name: GoldProductionUnitScript
     cost: 100
     productionAmount: 1
-    name: GoldProductionUnitScript
+  goldAmountText: {fileID: 6384028950078996770}
   purchaseButtonLabel: {fileID: 6384028950591197138}

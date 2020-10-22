@@ -14,10 +14,9 @@ public class Gold : MonoBehaviour {
         set {
             _goldAmount = value;
             goldChange?.Invoke();
-            
         }
     }
-    
+
     public void AddGold() {
         GoldAmount += goldAmountPerClick;
     }

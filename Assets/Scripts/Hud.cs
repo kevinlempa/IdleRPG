@@ -12,5 +12,4 @@ public class Hud : MonoBehaviour {
     public void UpdateGold() {
         goldText.text = $"Gold : {gold.GoldAmount}";
     }
-    
 }
