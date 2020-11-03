@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aae13b9a2b21c964fa8396c7d277a2dc, type: 3}
-  m_Name: GoldPress
+  m_Name: GoldFountain
   m_EditorClassIdentifier: 
-  cost: 100
-  productionAmount: 1
+  cost: 1000
+  productionAmount: 5
+  productionTime: 1
+  costMultiplier: 1.1
