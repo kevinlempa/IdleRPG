@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SaveAndLoad : MonoBehaviour {
     private Gold gold;
-    private GoldProductionUnitScript goldProductionUnitScript;
+    private GoldProducer goldProducer;
 
     void Start() {
         gold = FindObjectOfType<Gold>();

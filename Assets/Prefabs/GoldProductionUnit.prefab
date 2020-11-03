@@ -373,12 +373,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6384028951340766322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86cffedf1f9d8c94bb545ac7fbcc04f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 30365abae84cf784fbb7c01aaee89f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldProductionUnit:
-    name: GoldProductionUnitScript
-    cost: 100
-    productionAmount: 1
+  goldProductionData: {fileID: 0}
   goldAmountText: {fileID: 6384028950078996770}
   purchaseButtonLabel: {fileID: 6384028950591197138}
