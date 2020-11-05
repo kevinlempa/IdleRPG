@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Hud : MonoBehaviour {
     public Text goldText;
-    private Gold gold;
+    public Resource gold;
 
-    void Awake() {
-        gold = FindObjectOfType<Gold>();
+    private void Update() {
+        UpdateGold();
     }
 
     public void UpdateGold() {
-        goldText.text = $"Gold : {gold.GoldAmount}";
+        goldText.text = $"Gold : {gold.ResourceAmount}";
     }
 }

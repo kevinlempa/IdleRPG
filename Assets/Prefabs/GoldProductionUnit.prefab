@@ -380,10 +380,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldProductionData: {fileID: 0}
   upgradeAmountText: {fileID: 7862359417411102027}
-  goldAmountText: {fileID: 6384028950078996770}
-  purchaseButtonLabel: {fileID: 6384028950591197138}
-  upgradeButtonLabel: {fileID: 1598884946160509145}
+  AmountText: {fileID: 6384028950078996770}
+  gold: {fileID: 11400000, guid: 1fed3e1a51c44da4f941b36f7c1de6ba, type: 2}
   floatingText: {fileID: 8113611063525865749, guid: ac22c7a14fd5db44bbc92eed804569c4, type: 3}
+  amount:
+    buttonLabel: {fileID: 6384028950591197138}
+  upgrade:
+    buttonLabel: {fileID: 1598884946160509145}
 --- !u!1 &6679036750381768617
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +590,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7420895300492475696}
         m_TargetAssemblyTypeName: GoldProducer, Assembly-CSharp
-        m_MethodName: PurchaseUpgrade
+        m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

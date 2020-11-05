@@ -10,7 +10,7 @@ public class GoldProductionSetup : MonoBehaviour {
     private void Start() {
         foreach (var productionUnit in this.goldProductionUnits) {
             var instance = Instantiate(this.goldProductionUnitPrefab, this.goldProductionUnitParent);
-            instance.GetComponent<GoldProducer>().SetUp(productionUnit);
+            instance.GetComponent<ResourceProducer>().SetUp(productionUnit);
         }
     }
 }

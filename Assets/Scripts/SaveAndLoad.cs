@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveAndLoad : MonoBehaviour {
-    private Gold gold;
-    private GoldProducer goldProducer;
+    public Resource gold;
 
     void Start() {
-        gold = FindObjectOfType<Gold>();
-        gold.GoldAmount = PlayerPrefs.GetInt("Gold", 0);
+        gold.ResourceAmount = PlayerPrefs.GetInt("Gold", 0);
     }
 
     private void OnDestroy() {
-        PlayerPrefs.SetInt("Gold", gold.GoldAmount);
+        PlayerPrefs.SetInt("Gold", gold.ResourceAmount);
     }
 }

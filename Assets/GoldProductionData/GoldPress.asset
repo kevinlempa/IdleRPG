@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: GoldPress
   m_EditorClassIdentifier: 
   cost: 100
+  upgradeCost: 200
   productionAmount: 1
   productionTime: 1
+  costMultiplier: 1.1
+  upgradePercantage: 1.05
