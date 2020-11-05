@@ -20,17 +20,13 @@ public class Purchasable {
 
     bool IsAffordable => gold.ResourceAmount >= this.goldProductionData.GetActualCosts(this.Amount,cost);
     
-    public void SetUp(GoldProductionData goldProductionData, Resource gold, string productId) {
+    public void SetUp(GoldProductionData goldProductionData, Resource gold, string productId, int cost) {
         gold.ResourceChanged += UpdateTextColor;
         this.goldProductionData = goldProductionData;
         this.gold = gold;
         this.productId = productId;
-        this.cost = this.goldProductionData.cost;
-        if (productId == "Level") {
-            this.cost = this.goldProductionData.upgradeCost;
-        }
+        this.cost = cost;
         this.buttonLabel.text = $"Add {productId} for {goldProductionData.GetActualCosts(this.Amount,this.cost)}";
-
     }
 
     void UpdateTextColor() => this.buttonLabel.color = this.IsAffordable ? Color.black : Color.red;

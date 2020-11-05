@@ -31,8 +31,8 @@ public partial class ResourceProducer : MonoBehaviour {
     public void SetUp(GoldProductionData goldProductionData) {
         this.goldProductionData = goldProductionData;
         this.gameObject.name = goldProductionData.name;
-        this.amount.SetUp(goldProductionData, this.gold, "Count");
-        this.upgrade.SetUp(goldProductionData, this.gold, "Level");
+        this.amount.SetUp(goldProductionData, this.gold, "Count", this.goldProductionData.cost);
+        this.upgrade.SetUp(goldProductionData, this.gold, "Level", this.goldProductionData.upgradeCost);
     }
 
     private void Update() {
