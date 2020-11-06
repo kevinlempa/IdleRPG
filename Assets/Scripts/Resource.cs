@@ -7,24 +7,24 @@ using UnityEngine.Events;
 public class Resource : ScriptableObject {
 
    public event System.Action ResourceChanged;
-    [SerializeField] private int goldAmountPerClick = 5;
+    [SerializeField] private int resourcePerClick = 5;
     private int _resourceAmount;
 
     public int ResourceAmount {
-        get => _resourceAmount;
+        get => PlayerPrefs.GetInt(name, 0);
         set {
-            _resourceAmount = value;
+            PlayerPrefs.SetInt(name, value);
             ResourceChanged?.Invoke();
         }
     }
 
     public void AddResource() {
-        ResourceAmount += goldAmountPerClick;
+        ResourceAmount += resourcePerClick;
     }
 
-    public void AddResource(int goldToAdd) {
-        if (goldToAdd > 0)
-            ResourceAmount += goldToAdd;
+    public void AddResource(int addAmount) {
+        if (addAmount > 0)
+            ResourceAmount += addAmount;
     }
 
     public void ReduceResource(int reduceBy) {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 public class GoldProductionSetup : MonoBehaviour {
-    public GoldProductionData[] goldProductionUnits;
+    public ResourceProductionData[] goldProductionUnits;
     public Transform goldProductionUnitParent;
     public GameObject goldProductionUnitPrefab;
 

@@ -4,38 +4,36 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Purchasable {
     public Text buttonLabel;
-    GoldProductionData goldProductionData;
-    Resource gold;
+    ResourceProductionData _resourceProductionData;
     string productId;
     public event System.Action AmountChanged;
     public int cost;
 
     public int Amount {
-        get => PlayerPrefs.GetInt(this.goldProductionData.name + productId, 0);
+        get => PlayerPrefs.GetInt(this._resourceProductionData.name + productId, 0);
         set {
-            PlayerPrefs.SetInt(this.goldProductionData.name + productId, value);
+            PlayerPrefs.SetInt(this._resourceProductionData.name + productId, value);
             AmountChanged?.Invoke();
         }
     }
 
-    bool IsAffordable => gold.ResourceAmount >= this.goldProductionData.GetActualCosts(this.Amount,cost);
+    bool IsAffordable => _resourceProductionData.costResource.ResourceAmount >= this._resourceProductionData.GetActualCosts(this.Amount,cost);
     
-    public void SetUp(GoldProductionData goldProductionData, Resource gold, string productId, int cost) {
+    public void SetUp(ResourceProductionData resourceProductionData, Resource gold, string productId, int cost) {
         gold.ResourceChanged += UpdateTextColor;
-        this.goldProductionData = goldProductionData;
-        this.gold = gold;
+        this._resourceProductionData = resourceProductionData;
         this.productId = productId;
         this.cost = cost;
-        this.buttonLabel.text = $"Add {productId} for {goldProductionData.GetActualCosts(this.Amount,this.cost)}";
+        this.buttonLabel.text = $"Purchase for {resourceProductionData.GetActualCosts(this.Amount,this.cost)}{_resourceProductionData.costResource.name}";
     }
 
     void UpdateTextColor() => this.buttonLabel.color = this.IsAffordable ? Color.black : Color.red;
 
     public void Purchase() {
         if (this.IsAffordable) {
-            gold.ReduceResource(this.goldProductionData.GetActualCosts(this.Amount, this.cost));
+            _resourceProductionData.costResource.ReduceResource(this._resourceProductionData.GetActualCosts(this.Amount, this.cost));
             this.Amount++;
-            this.buttonLabel.text = $"Purchase for {this.goldProductionData.GetActualCosts(this.Amount, this.cost)}";
+            this.buttonLabel.text = $"Purchase for {this._resourceProductionData.GetActualCosts(this.Amount, this.cost)} {_resourceProductionData.costResource.name}";
             
         }
     }
